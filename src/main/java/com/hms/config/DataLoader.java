@@ -52,7 +52,7 @@ public class DataLoader {
      * @return A Pair object containing the check-in date as the first element and the check-out date as the second element.
      */
     private Pair<Date, Date> initDates(int daysToAdd) {
-        // Adding 2 days to checkInDate as the checkOutDate
+        // Adding daysToAdd to checkInDate as the checkOutDate
         LocalDate checkInDate = LocalDate.now();
         LocalDate checkOutDate = checkInDate.plusDays(daysToAdd);
 
