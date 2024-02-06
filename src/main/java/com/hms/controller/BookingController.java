@@ -5,6 +5,7 @@ import com.hms.service.BookingService;
 import com.hms.utils.ApiUrls;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class BookingController {
      * @return a ResponseEntity containing the saved booking object and HTTP status code
      */
     @PostMapping
-    public ResponseEntity<Booking> addBooking(Booking booking) {
+    public ResponseEntity<Booking> addBooking(@Validated @RequestBody Booking booking) {
         Booking savedBooking = bookingService.saveBooking(booking);
         return ResponseEntity.ok(savedBooking);
     }
