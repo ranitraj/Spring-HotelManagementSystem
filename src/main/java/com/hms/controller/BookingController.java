@@ -1,9 +1,11 @@
 package com.hms.controller;
 
+import com.hms.exceptions.ResourceNotFoundException;
 import com.hms.model.Booking;
 import com.hms.service.BookingService;
 import com.hms.utils.ApiUrls;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -56,5 +58,23 @@ public class BookingController {
     public ResponseEntity<List<Booking>> getAllBookings() {
         List<Booking> bookings = bookingService.getAllBookings();
         return ResponseEntity.ok(bookings);
+    }
+
+    /**
+     * Updates an existing booking identified by the given ID with the provided booking details.
+     * If the booking with the specified ID does not exist, returns a 404 Not Found.
+     *
+     * @param id The ID of the booking to update.
+     * @param booking The updated booking details.
+     * @return ResponseEntity containing the updated booking or an error message.
+     * @throws ResourceNotFoundException if no Booking is found with the provided ID.
+     */
+    @PutMapping(ApiUrls.API_URL_UPDATE_BOOKING)
+    public ResponseEntity<Booking> updateBooking(@PathVariable Long id, @Validated @RequestBody Booking booking) {
+        return bookingService.updateBooking(id, booking)
+                .map(ResponseEntity::ok)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Booking not found with ID: " + id)
+                );
     }
 }

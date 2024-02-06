@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookingService {
@@ -48,5 +49,25 @@ public class BookingService {
      */
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
+    }
+
+    /**
+     * Updates the booking with the specified ID using the provided booking details.
+     *
+     * @param id The ID of the booking to update.
+     * @param updatedBookingDetails The updated booking details.
+     * @return An Optional containing the updated booking if found, or an empty Optional otherwise.
+     */
+    public Optional<Booking> updateBooking(Long id, Booking updatedBookingDetails) {
+        return bookingRepository.findById(id).map(existingBooking -> {
+            existingBooking.setCustomerName(updatedBookingDetails.getCustomerName());
+            existingBooking.setRoomType(updatedBookingDetails.getRoomType());
+            existingBooking.setCheckInDate(updatedBookingDetails.getCheckInDate());
+            existingBooking.setCheckOutDate(updatedBookingDetails.getCheckOutDate());
+            existingBooking.setTotalPrice(updatedBookingDetails.getTotalPrice());
+
+            // Update using the saveBooking method in Service
+            return saveBooking(existingBooking);
+        });
     }
 }

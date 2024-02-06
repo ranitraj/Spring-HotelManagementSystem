@@ -27,6 +27,14 @@ public class GlobalExceptionHandler {
                 .body(exception.getMessage());
     }
 
+    /**
+     * Handles exceptions triggered by validation failures.
+     * This method is invoked when an object fails validation checks before being processed by a controller method.
+     * It extracts and formats validation error messages, mapping them to their respective field names.
+     *
+     * @param exception The MethodArgumentNotValidException containing details about the validation errors.
+     * @return A ResponseEntity containing a map of field names to validation error messages and the HTTP status BAD_REQUEST.
+     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException exception) {
         log.error("Validation exception occurred: ", exception);
