@@ -56,12 +56,12 @@ The H2 database console is enabled by default and can be accessed through your w
 
 ## Testing API Endpoints
 
-You can test the API endpoints using Postman or any other API testing tool by sending requests to `http://localhost:8080/api/bookings`. Below are sample requests for each available endpoint.
+You can test the API endpoints using Postman or any other API testing tool by sending requests to `http://localhost:8080/bookings`. Below are sample requests for each available endpoint.
 
 ### Create a New Booking
 
 - **Method:** POST
-- **URL:** `/api/bookings`
+- **URL:** `/bookings`
 - **Body:**
 
   ```json
@@ -77,17 +77,17 @@ You can test the API endpoints using Postman or any other API testing tool by se
 ### Retrieve All Bookings
 
 - **Method:** GET
-- **URL:** `/api/bookings`
+- **URL:** `/bookings`
 
 ### Retrieve a Booking by ID
 
 - **Method:** GET
-- **URL:** `/api/bookings/{id}`
+- **URL:** `/bookings/{id}`
 
 ### Update a Booking
 
 - **Method:** PUT
-- **URL:** `/api/bookings/{id}`
+- **URL:** `/bookings/{id}`
 - **Body:** (Modify as needed)
 
   ```json
@@ -103,14 +103,10 @@ You can test the API endpoints using Postman or any other API testing tool by se
 ### Delete a Booking (To be implemented)
 
 - **Method:** DELETE
-- **URL:** `/api/bookings/{id}`
+- **URL:** `/bookings/{id}`
 
 ## Built With
 
 - [Spring Boot](https://spring.io/projects/spring-boot) - The web framework used
 - [H2 Database](https://www.h2database.com/html/main.html) - In-memory database for development and testing
 - [Maven](https://maven.apache.org/) - Dependency Management
-
-## Authors
-
-- **Your Name** - *Initial Work* - [YourGitHub](https://github.com/ranitraj)
