@@ -12,7 +12,7 @@ These instructions will guide you through setting up and running the application
 Ensure you have the following installed:
 
 - JDK 11 or newer
-- Maven (if using Maven as a build tool)
+- Maven
 - Your favorite IDE (e.g., IntelliJ IDEA, Eclipse, VS Code)
 
 ### Setup and Run
@@ -23,6 +23,7 @@ Ensure you have the following installed:
 
    ```bash
    git clone https://github.com/ranitraj/Spring-HotelManagementSystem.git
+   cd downloaded-project-path
    ```
 
 2. **Build the project**
