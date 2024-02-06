@@ -23,7 +23,7 @@ public class Booking {
             strategy = GenerationType.SEQUENCE,
             generator = "booking_sequence"
     )
-    private long id;
+    private Long id;
     private String customerName;
     private String roomType;
     private Date checkInDate;
