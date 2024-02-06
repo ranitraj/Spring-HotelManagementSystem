@@ -1,4 +1,4 @@
-package com.hms.utils;
+package com.hms.exceptions;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -8,7 +8,19 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 @Slf4j
-public class ExceptionHandlerUtil {
+public class GlobalExceptionHandler {
+
+    /**
+     * Handles ResourceNotFoundExceptions across the whole application.
+     * @param exception The caught ResourceNotFoundException.
+     * @return A ResponseEntity with a 404 Not Found status and the exception message.
+     */
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<?> handleResourceNotFoundException(ResourceNotFoundException exception) {
+        log.error("Resource Not Found exception occurred: ", exception);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(exception.getMessage());
+    }
 
     /**
      * Handles all uncaught exceptions across the application.

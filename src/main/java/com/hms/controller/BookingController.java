@@ -31,6 +31,14 @@ public class BookingController {
         return ResponseEntity.ok(savedBooking);
     }
 
+    /**
+     * Handles the HTTP GET request to retrieve a booking by its ID.
+     * Returns the booking details if found, otherwise throws a ResourceNotFoundException
+     * which is handled globally to return a 404 Not Found response.
+     *
+     * @param id The ID of the booking to retrieve.
+     * @return A ResponseEntity containing the booking if found, with an HTTP 200 OK status.
+     */
     @GetMapping(ApiUrls.API_URL_GET_BOOKING_BY_ID)
     public ResponseEntity<Booking> getBookingById(@PathVariable Long id) {
         Booking fetchedBooking = bookingService.getBookingById(id);
