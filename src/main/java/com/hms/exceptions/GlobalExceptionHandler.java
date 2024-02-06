@@ -33,7 +33,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleException(Exception exception) {
         log.error("Unhandled exception occurred: ", exception);
-
         return new ResponseEntity<>(
                 "An error occurred: " + exception.getMessage(),
                 HttpStatus.INTERNAL_SERVER_ERROR

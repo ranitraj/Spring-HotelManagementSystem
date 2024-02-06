@@ -6,6 +6,8 @@ import com.hms.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookingService {
     private final BookingRepository bookingRepository;
@@ -38,5 +40,13 @@ public class BookingService {
                 .orElseThrow(() ->
                         new ResourceNotFoundException("Booking not found with ID: " + id)
                 );
+    }
+
+    /**
+     * Retrieves all bookings from the database.
+     * @return A list of bookings or an empty list if no bookings are found.
+     */
+    public List<Booking> getAllBookings() {
+        return bookingRepository.findAll();
     }
 }

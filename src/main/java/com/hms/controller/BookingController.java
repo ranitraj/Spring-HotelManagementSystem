@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(ApiUrls.API_URL_BOOKINGS)
 public class BookingController {
@@ -45,4 +47,13 @@ public class BookingController {
         return ResponseEntity.ok(fetchedBooking);
     }
 
+    /**
+     * Retrieves all bookings. Returns an empty list if no bookings are found.
+     * @return ResponseEntity containing a list of bookings or an empty list with HTTP 200 OK.
+     */
+    @GetMapping
+    public ResponseEntity<List<Booking>> getAllBookings() {
+        List<Booking> bookings = bookingService.getAllBookings();
+        return ResponseEntity.ok(bookings);
+    }
 }
