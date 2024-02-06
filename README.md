@@ -12,7 +12,7 @@ These instructions will guide you through setting up and running the application
 Ensure you have the following installed:
 
 - JDK 11 or newer
-- Maven (if using Maven as a build tool)
+- Maven
 - Your favorite IDE (e.g., IntelliJ IDEA, Eclipse, VS Code)
 
 ### Setup and Run
@@ -23,6 +23,7 @@ Ensure you have the following installed:
 
    ```bash
    git clone https://github.com/ranitraj/Spring-HotelManagementSystem.git
+   cd [project-path/hms]
    ```
 
 2. **Build the project**
@@ -110,7 +111,3 @@ You can test the API endpoints using Postman or any other API testing tool by se
 - [Spring Boot](https://spring.io/projects/spring-boot) - The web framework used
 - [H2 Database](https://www.h2database.com/html/main.html) - In-memory database for development and testing
 - [Maven](https://maven.apache.org/) - Dependency Management
-
-## Authors
-
-- **Your Name** - *Initial Work* - [YourGitHub](https://github.com/ranitraj)
