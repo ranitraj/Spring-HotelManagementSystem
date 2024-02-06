@@ -5,9 +5,7 @@ import com.hms.service.BookingService;
 import com.hms.utils.ApiUrls;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(ApiUrls.API_URL_BOOKINGS)
@@ -32,4 +30,11 @@ public class BookingController {
         Booking savedBooking = bookingService.saveBooking(booking);
         return ResponseEntity.ok(savedBooking);
     }
+
+    @GetMapping(ApiUrls.API_URL_GET_BOOKING_BY_ID)
+    public ResponseEntity<Booking> getBookingById(@PathVariable Long id) {
+        Booking fetchedBooking = bookingService.getBookingById(id);
+        return ResponseEntity.ok(fetchedBooking);
+    }
+
 }
